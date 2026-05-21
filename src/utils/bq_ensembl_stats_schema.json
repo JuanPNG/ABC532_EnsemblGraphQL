@@ -1,0 +1,120 @@
+[
+  {"name": "genome_id", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "accession", "type": "STRING", "mode": "REQUIRED"},
+  {
+    "name": "assembly_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "contig_n50", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_genome_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_coding_sequence_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_gap_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "spanned_gaps", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "chromosomes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "toplevel_sequences", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "component_sequences", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "gc_percentage", "type": "FLOAT", "mode": "NULLABLE"}
+    ]
+  },
+  {
+    "name": "coding_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "coding_genes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_genomic_span", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_sequence_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_cds_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "shortest_gene_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "longest_gene_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_transcripts", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "coding_transcripts", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "transcripts_per_gene", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "coding_transcripts_per_gene", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_exons", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_coding_exons", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_exon_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_coding_exon_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_exons_per_transcript", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_coding_exons_per_coding_transcript", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_introns", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_intron_length", "type": "FLOAT", "mode": "NULLABLE"}
+    ]
+  },
+  {
+    "name": "variation_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "short_variants", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "structural_variants", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "short_variants_with_phenotype_assertions", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "short_variants_with_publications", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "short_variants_frequency_studies", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "structural_variants_with_phenotype_assertions", "type": "INTEGER", "mode": "NULLABLE"}
+    ]
+  },
+  {
+    "name": "non_coding_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "non_coding_genes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "small_non_coding_genes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "long_non_coding_genes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "misc_non_coding_genes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_genomic_span", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_sequence_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "shortest_gene_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "longest_gene_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_transcripts", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "transcripts_per_gene", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_exons", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_exon_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_exons_per_transcript", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_introns", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_intron_length", "type": "FLOAT", "mode": "NULLABLE"}
+    ]
+  },
+  {
+    "name": "pseudogene_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "pseudogenes", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_genomic_span", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_sequence_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "shortest_gene_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "longest_gene_length", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "total_transcripts", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "transcripts_per_gene", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_exons", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_exon_length", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "average_exons_per_transcript", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_introns", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "average_intron_length", "type": "FLOAT", "mode": "NULLABLE"}
+    ]
+  },
+  {
+    "name": "homology_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "coverage", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "reference_species_name", "type": "STRING", "mode": "NULLABLE"}
+    ]
+  },
+  {
+    "name": "regulation_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {"name": "enhancers", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "promoters", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "ctcf_count", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "tfbs_count", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "open_chromatin_count", "type": "INTEGER", "mode": "NULLABLE"}
+    ]
+  }
+]
