@@ -1,0 +1,20 @@
+[
+  {"name": "accession", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "assembly_level", "type": "STRING", "mode": "NULLABLE"},
+  {"name": "ungapped_length", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "scaffold_n50", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "scaffold_count", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "contig_n50", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "contig_count", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "coverage", "type": "FLOAT", "mode": "NULLABLE"},
+  {"name": "spanned_gaps", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "unspanned_gaps", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "contig_l50", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "scaffold_l50", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "contig_n75", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "contig_n90", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "scaffold_n75", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "scaffold_n90", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "replicon_count", "type": "INTEGER", "mode": "NULLABLE"},
+  {"name": "non_chromosome_replicon_count", "type": "INTEGER", "mode": "NULLABLE"}
+]
