@@ -4,7 +4,13 @@ from typing import Any, Iterable
 
 import apache_beam as beam
 
-from utils.helpers import EnsemblApiError, retrieve_genome_id, retrieve_genome_stats_by_id
+from utils.helpers import (
+    EnaApiError,
+    EnsemblApiError,
+    retrieve_ena_assembly_stats,
+    retrieve_genome_id,
+    retrieve_genome_stats_by_id,
+)
 
 
 class RetrieveGenomeStatsDoFn(beam.DoFn):
@@ -47,6 +53,34 @@ class RetrieveGenomeStatsDoFn(beam.DoFn):
         }
 
         yield record
+
+    def _throttle(self) -> None:
+        if self.api_call_delay_seconds > 0:
+            time.sleep(self.api_call_delay_seconds)
+
+
+class RetrieveEnaAssemblyStatsDoFn(beam.DoFn):
+    """Resolve a taxonomy JSONL line to flat ENA assembly metrics."""
+
+    def __init__(self, api_call_delay_seconds: float = 0.0) -> None:
+        self.api_call_delay_seconds = api_call_delay_seconds
+
+    def process(self, element: str) -> Iterable[dict[str, Any]]:
+
+        source_record = json.loads(element)
+        accession = source_record.get('accession')
+
+        try:
+            self._throttle()
+            yield retrieve_ena_assembly_stats(accession)
+        except EnaApiError as exc:
+            yield beam.pvalue.TaggedOutput(
+                'errors',
+                {
+                    'accession': accession,
+                    'error': str(exc),
+                },
+            )
 
     def _throttle(self) -> None:
         if self.api_call_delay_seconds > 0:
